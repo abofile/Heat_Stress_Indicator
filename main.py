@@ -47,8 +47,6 @@ lcd = LCD(addr=I2C_ADDR, cols=16, rows=2, i2c=i2c)
 lcd.begin()
 
 def out_of_range_round(tempc,air_moisture):
-        global temp
-        global humid
         temp = tempc
         humid = air_moisture
 
@@ -63,8 +61,7 @@ def out_of_range_round(tempc,air_moisture):
                 humid = 10
             else:
                 humid = 90
-        else:
-            pass
+        return temp, humid
 
 
 
