@@ -73,17 +73,11 @@ while True:
     temp_input = d.temperature()
     humid_input = d.humidity()
 
-    #print(f"actual temp: {round(temp_input,1)}  actual humid: {round(humid_input,1)}")
-
     # to switch the sensor input to int for compatability with HEAT_INDEX_TABLE
     air_temp_c = int(temp_input)
     relative_humidity = int(humid_input)
 
-    temp = 0
-    humid = 0
-
-    out_of_range_round(air_temp_c,relative_humidity)
-    #print(f"conv temp: {round(temp,1)}  conv humid: {round(humid, -1)}")
+    temp, humid = out_of_range_round(air_temp_c,relative_humidity)
 
     HEAT_INDEX = HEAT_INDEX_TABLE[temp][round(humid,-1)]
 
